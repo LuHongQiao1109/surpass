@@ -14,8 +14,9 @@ const HeaderContent: React.FC = () => {
                 { id: 1, tabName: "首页" },
                 { id: 2, tabName: "个人中心" },
             ]
+          console.log('%c 🍎嘿嘿87🍎:', 'color: CornflowerBlue; background: DeepPink; font-size: 20px;', res)
             setTabList(res)
-        }, 500)
+        })
     }, [])
 
 
@@ -36,7 +37,7 @@ const HeaderContent: React.FC = () => {
                 抬头
             </div >
 
-            <div>{tabList.length && tabList.map((item) => (
+            <div>{ tabList.map((item) => (
                 <div key={item.id}>{item.tabName}</div>
             ))}</div>
 

@@ -27,7 +27,7 @@
     },
 
     /* Ignore deprecation warnings for baseUrl */
-    "ignoreDeprecations": "6.0"
+    "ignoreDeprecations": "5.0"
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
