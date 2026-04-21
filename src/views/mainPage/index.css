@@ -1,0 +1,11 @@
+.headerStyle {
+    /* 默认样式 */
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    /* 可选：添加过渡效果 */
+}
+
+.headerStyle.active {
+    color: blue !important;
+}
