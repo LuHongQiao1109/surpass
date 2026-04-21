@@ -41,12 +41,14 @@ function Button() {
 ```json
 {
   "devDependencies": {
-    "tailwindcss": "^4.2.3",
+    "tailwindcss": "^3.4.1",
     "postcss": "^8.5.10",
     "autoprefixer": "^10.5.0"
   }
 }
 ```
+
+**注意：** 项目使用 Tailwind CSS v3 版本。v4 版本配置方式不同，暂不推荐使用。
 
 ### 2.2 配置文件
 
