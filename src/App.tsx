@@ -1,13 +1,16 @@
-import TestCode from "@/views/testCode"
-import HeaderContent from '@/views/mainPage'
+/**
+ * App 根组件
+ *
+ * 整合 Layout 和 Routes，并为需要认证的路由包裹 ProtectedRoute
+ */
+import Layout from '@/components/Layout'
+import AppRoutes from '@/routes'
 
 function App() {
-
   return (
-    <div className="app-main w-full h-full min-h-screen bg-gray-100">
-      {/* <TestCode /> */}
-      <HeaderContent />
-    </div>
+    <Layout>
+      <AppRoutes />
+    </Layout>
   )
 }
 
