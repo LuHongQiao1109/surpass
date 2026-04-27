@@ -13,7 +13,7 @@ function Users() {
   const [selectedUser, setSelectedUser] = useState<typeof users[0] | null>(null)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-100 p-8">
+    <div className=" bg-gradient-to-br from-orange-50 to-red-100 p-8">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-5xl font-bold text-red-600 mb-8">用户列表</h1>
 

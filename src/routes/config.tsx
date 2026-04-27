@@ -28,6 +28,7 @@ const UserDetail = lazy(() => import('@/pages/UserDetail'))
 const NotFound = lazy(() => import('@/pages/NotFound'))
 const Login = lazy(() => import('@/pages/Login'))
 const Test = lazy(() => import('@/pages/Test'))
+const CalendarPage = lazy(() => import('@/pages/CalendarPage/index'))
 
 /**
  * 加载fallback 组件
@@ -147,6 +148,16 @@ const routes: RouteConfig[] = [
       title: '测试页面',
       requiresAuth: true, // 示例：需要登录才能访问
     },
+  },
+  {
+    path: '/calendar',
+    element: withSuspense(<CalendarPage />),
+    name: 'calendar',
+    meta: {
+      title: '日历',
+      hideInNav: true,
+      requiresAuth: false,
+    }
   },
   {
     path: '*',

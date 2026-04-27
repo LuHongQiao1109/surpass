@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 function NotFound() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 p-8 flex items-center justify-center">
+    <div className=" bg-gradient-to-br from-gray-900 to-gray-800 p-8 flex items-center justify-center">
       <div className="text-center">
         <h1 className="text-9xl font-bold text-white mb-4">404</h1>
         <p className="text-2xl text-gray-300 mb-8">页面未找到</p>

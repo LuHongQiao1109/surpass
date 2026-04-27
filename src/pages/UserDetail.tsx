@@ -14,7 +14,7 @@ function UserDetail() {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 p-8 flex items-center justify-center">
+      <div className=" bg-gradient-to-br from-gray-50 to-gray-200 p-8 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-6xl font-bold text-gray-800 mb-4">404</h1>
           <p className="text-xl text-gray-600 mb-8">用户不存在</p>
@@ -27,7 +27,7 @@ function UserDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
+    <div className=" bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
       <div className="max-w-2xl mx-auto">
         <div className="bg-white rounded-xl shadow-lg p-8">
           <div className="flex items-center mb-6">

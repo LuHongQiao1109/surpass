@@ -64,7 +64,7 @@ import { BrowserRouter } from 'react-router-dom'
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
     <App />
-  </BrowserRouter>
+  </BrowserRouter>,
 )
 ```
 
@@ -116,11 +116,7 @@ function Layout() {
   const location = useLocation()
   console.log(location.pathname) // 输出：/about
 
-  return (
-    <div>
-      当前路径：{location.pathname}
-    </div>
-  )
+  return <div>当前路径：{location.pathname}</div>
 }
 ```
 
@@ -234,7 +230,7 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </StrictMode>
+  </StrictMode>,
 )
 ```
 
@@ -292,7 +288,7 @@ function Layout() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className=" bg-gray-100">
       {/* 导航栏 */}
       <nav className="bg-white shadow-md">
         <div className="max-w-7xl mx-auto px-4">
@@ -356,7 +352,7 @@ import { Link } from 'react-router-dom'
 
 function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
+    <div className=" bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
       <h1 className="text-5xl font-bold text-indigo-600 mb-8">首页</h1>
 
       <div className="grid gap-6">
@@ -451,7 +447,7 @@ export default PrivateRoute
 // src/routes/index.tsx
 import PrivateRoute from '@/components/PrivateRoute'
 
-<Routes>
+;<Routes>
   <Route path="/" element={<Home />} />
   <Route path="/login" element={<Login />} />
 
@@ -546,6 +542,7 @@ const { data } = location.state
 **Vite 开发服务器：** 自动处理，无需配置。
 
 **生产环境（Nginx 示例）：**
+
 ```nginx
 location / {
   try_files $uri $uri/ /index.html;
@@ -555,6 +552,7 @@ location / {
 ### Q2: 如何在路由跳转时传递数据？
 
 使用 `location.state`：
+
 ```tsx
 // 发送
 navigate('/detail', { state: { user } })
@@ -567,6 +565,7 @@ const user = state?.user
 ### Q3: 如何实现路由切换动画？
 
 使用 `CSSTransition`：
+
 ```tsx
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { useLocation } from 'react-router-dom'
@@ -577,9 +576,7 @@ function App() {
   return (
     <TransitionGroup>
       <CSSTransition key={location.key} timeout={300} classNames="fade">
-        <Routes location={location}>
-          {/* routes */}
-        </Routes>
+        <Routes location={location}>{/* routes */}</Routes>
       </CSSTransition>
     </TransitionGroup>
   )
@@ -640,6 +637,7 @@ function withSuspense(element: ReactNode): ReactNode {
 ```
 
 **性能优势：**
+
 - 首屏只需加载首页代码，其他页面按需加载
 - 显著提升 FCP (First Contentful Paint)
 - 减少初始加载时间
@@ -666,7 +664,12 @@ function ProtectedRoute({
 
   // 1. 检查是否已登录
   if (!user || !user.isAuthenticated) {
-    return <Navigate to={`${redirectTo}?redirect=${encodeURIComponent(window.location.pathname)}`} replace />
+    return (
+      <Navigate
+        to={`${redirectTo}?redirect=${encodeURIComponent(window.location.pathname)}`}
+        replace
+      />
+    )
   }
 
   // 2. 检查是否有所需角色 (RBAC)
@@ -680,6 +683,7 @@ function ProtectedRoute({
 ```
 
 **使用场景：**
+
 - 用户登录状态验证
 - 管理员页面权限控制（RBAC）
 - 会员专属内容访问控制
@@ -702,11 +706,11 @@ const routes: RouteConfig[] = [
     name: 'dashboard',
     children: [
       {
-        path: 'stats',  // 完整路径：/dashboard/stats
+        path: 'stats', // 完整路径：/dashboard/stats
         element: withSuspense(<Stats />),
       },
       {
-        path: 'settings',  // 完整路径：/dashboard/settings
+        path: 'settings', // 完整路径：/dashboard/settings
         element: withSuspense(<Settings />),
       },
     ],
@@ -727,6 +731,7 @@ const routes: RouteConfig[] = [
 **当前项目实现：**
 
 **配置文件：** `src/routes/config.ts`
+
 ```tsx
 const routes: RouteConfig[] = [
   {
@@ -739,18 +744,19 @@ const routes: RouteConfig[] = [
     path: '/test',
     element: withSuspense(<Test />),
     name: 'test',
-    meta: { requiresAuth: true },  // 需要登录
+    meta: { requiresAuth: true }, // 需要登录
   },
 ]
 ```
 
 **类型定义：** `src/routes/types.ts`
+
 ```tsx
 export interface RouteConfig {
   path?: string
   element: ReactNode
   name?: string
-  children?: RouteConfig[]  // 支持嵌套
+  children?: RouteConfig[] // 支持嵌套
   meta?: {
     title?: string
     requiresAuth?: boolean
@@ -760,6 +766,7 @@ export interface RouteConfig {
 ```
 
 **优势：**
+
 - 路由集中管理，易于维护
 - 支持动态路由（可从 API 获取配置）
 - 便于实现路由权限、面包屑等功能
@@ -783,7 +790,7 @@ const routes: RouteConfig[] = [
     name: 'newPage',
     meta: {
       title: '新页面',
-      requiresAuth: true,  // 需要登录
+      requiresAuth: true, // 需要登录
     },
   },
 ]

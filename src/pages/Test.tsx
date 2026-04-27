@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 function Test() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 p-8">
+    <div className=" bg-gradient-to-br from-green-50 to-emerald-100 p-8">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-emerald-600 mb-8">测试页面</h1>
 
